@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <!-- Homepage -->
+    <url>
+        <loc>https://www.gleamhub.co.uk/</loc>
+        <lastmod>2026-03-08</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+    </url>
+
+    <!-- Deep Cleaning -->
+    <url>
+        <loc>https://www.gleamhub.co.uk/deep-cleaning-wirral.html</loc>
+        <lastmod>2026-03-08</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://www.gleamhub.co.uk/deep-cleaning-liverpool.html</loc>
+        <lastmod>2026-03-08</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://www.gleamhub.co.uk/deep-cleaning-chester.html</loc>
+        <lastmod>2026-03-08</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Biohazard Cleaning -->
+    <url>
+        <loc>https://www.gleamhub.co.uk/biohazard-cleaning-wirral.html</loc>
+        <lastmod>2026-03-08</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://www.gleamhub.co.uk/biohazard-cleaning-liverpool.html</loc>
+        <lastmod>2026-03-08</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://www.gleamhub.co.uk/biohazard-cleaning-chester.html</loc>
+        <lastmod>2026-03-08</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Carpet Cleaning -->
+    <url>
+        <loc>https://www.gleamhub.co.uk/carpet-cleaning-wirral.html</loc>
+        <lastmod>2026-03-08</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://www.gleamhub.co.uk/carpet-cleaning-liverpool.html</loc>
+        <lastmod>2026-03-08</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://www.gleamhub.co.uk/carpet-cleaning-chester.html</loc>
+        <lastmod>2026-03-08</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Upholstery Cleaning -->
+    <url>
+        <loc>https://www.gleamhub.co.uk/upholstery-cleaning-wirral.html</loc>
+        <lastmod>2026-03-08</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://www.gleamhub.co.uk/upholstery-cleaning-liverpool.html</loc>
+        <lastmod>2026-03-08</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://www.gleamhub.co.uk/upholstery-cleaning-chester.html</loc>
+        <lastmod>2026-03-08</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Window Cleaning -->
+    <url>
+        <loc>https://www.gleamhub.co.uk/window-cleaning-wirral.html</loc>
+        <lastmod>2026-03-08</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://www.gleamhub.co.uk/window-cleaning-liverpool.html</loc>
+        <lastmod>2026-03-08</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://www.gleamhub.co.uk/window-cleaning-chester.html</loc>
+        <lastmod>2026-03-08</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- End of Tenancy Cleaning -->
+    <url>
+        <loc>https://www.gleamhub.co.uk/end-of-tenancy-cleaning-wirral.html</loc>
+        <lastmod>2026-03-08</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://www.gleamhub.co.uk/end-of-tenancy-cleaning-liverpool.html</loc>
+        <lastmod>2026-03-08</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://www.gleamhub.co.uk/end-of-tenancy-cleaning-chester.html</loc>
+        <lastmod>2026-03-08</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Commercial Cleaning -->
+    <url>
+        <loc>https://www.gleamhub.co.uk/commercial-cleaning-wirral.html</loc>
+        <lastmod>2026-03-08</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://www.gleamhub.co.uk/commercial-cleaning-liverpool.html</loc>
+        <lastmod>2026-03-08</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://www.gleamhub.co.uk/commercial-cleaning-chester.html</loc>
+        <lastmod>2026-03-08</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+</urlset>

@@ -4,7 +4,95 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GleamHub Cleaning Services | Professional Cleaning Across Wirral, Liverpool &amp; Chester</title>
-    <meta name="description" content="GleamHub offers professional deep cleaning, biohazard cleaning, carpet cleaning, window cleaning, end of tenancy and commercial cleaning across the Wirral, Liverpool and Chester.">
+    <meta name="description" content="GleamHub offers professional deep cleaning, biohazard cleaning, carpet cleaning, upholstery cleaning, window cleaning, end of tenancy and commercial cleaning across the Wirral, Liverpool and Chester. Fully insured, DBS-checked staff. Call 0330 043 2580 for a free quote.">
+    <meta name="keywords" content="cleaning services Wirral, deep cleaning Liverpool, carpet cleaning Chester, end of tenancy cleaning Wirral, commercial cleaning Liverpool, biohazard cleaning, window cleaning Wirral, upholstery cleaning Liverpool, office cleaning Chester, pub cleaning Wirral">
+    <meta name="robots" content="index, follow">
+    <meta name="geo.region" content="GB-CHW">
+    <meta name="geo.placename" content="Wirral, Liverpool, Chester">
+    <link rel="canonical" href="https://www.gleamhub.co.uk/">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="GleamHub Cleaning Services | Wirral, Liverpool &amp; Chester">
+    <meta property="og:description" content="Professional deep cleaning, biohazard, carpet, upholstery, window, end of tenancy and commercial cleaning. Fully insured &amp; DBS-checked. Free quotes.">
+    <meta property="og:image" content="https://www.gleamhub.co.uk/Logo2.png">
+    <meta property="og:url" content="https://www.gleamhub.co.uk/">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_GB">
+    <meta property="og:site_name" content="GleamHub Cleaning Services">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="GleamHub Cleaning Services | Wirral, Liverpool &amp; Chester">
+    <meta name="twitter:description" content="Professional cleaning services across Merseyside &amp; Cheshire. Deep cleaning, biohazard, carpets, windows &amp; more. Free quotes.">
+    <meta name="twitter:image" content="https://www.gleamhub.co.uk/Logo2.png">
+
+    <!-- Schema: LocalBusiness -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "@id": "https://www.gleamhub.co.uk/#business",
+        "name": "GleamHub Cleaning Services",
+        "description": "Professional deep cleaning, biohazard cleaning, carpet cleaning, upholstery cleaning, window cleaning, end of tenancy cleaning and commercial cleaning services across the Wirral, Liverpool and Chester.",
+        "url": "https://www.gleamhub.co.uk",
+        "telephone": "03300432580",
+        "email": "simonwilbraham@sky.com",
+        "image": "https://www.gleamhub.co.uk/Logo2.png",
+        "logo": "https://www.gleamhub.co.uk/Logo2.png",
+        "priceRange": "££",
+        "openingHoursSpecification": [
+            {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+                "opens": "07:00",
+                "closes": "20:00"
+            },
+            {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": "Sunday",
+                "opens": "09:00",
+                "closes": "17:00"
+            }
+        ],
+        "areaServed": [
+            {
+                "@type": "City",
+                "name": "Wirral",
+                "containedInPlace": { "@type": "AdministrativeArea", "name": "Merseyside" }
+            },
+            {
+                "@type": "City",
+                "name": "Liverpool",
+                "containedInPlace": { "@type": "AdministrativeArea", "name": "Merseyside" }
+            },
+            {
+                "@type": "City",
+                "name": "Chester",
+                "containedInPlace": { "@type": "AdministrativeArea", "name": "Cheshire" }
+            }
+        ],
+        "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Cleaning Services",
+            "itemListElement": [
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Deep Cleaning" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Biohazard Cleaning" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Carpet Cleaning" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Upholstery Cleaning" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Window Cleaning" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "End of Tenancy Cleaning" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Commercial Cleaning" } }
+            ]
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "5",
+            "reviewCount": "1",
+            "bestRating": "5"
+        }
+    }
+    </script>
+
     <link rel="icon" type="image/png" href="Logo2.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -704,6 +792,66 @@
 
         .form-group textarea { resize: vertical; min-height: 100px; }
 
+        /* ===== FAQ ===== */
+        .faq { background: var(--white); }
+
+        .faq-list { max-width: 800px; margin: 0 auto; }
+
+        .faq-item {
+            border-bottom: 1px solid var(--gray-light);
+        }
+
+        .faq-question {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 0;
+            background: none;
+            border: none;
+            cursor: pointer;
+            text-align: left;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--navy);
+            transition: var(--transition);
+            gap: 16px;
+        }
+
+        .faq-question:hover { color: var(--teal); }
+
+        .faq-icon {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(14,116,144,0.1), rgba(61,186,94,0.1));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: var(--transition);
+            font-size: 1.2rem;
+            color: var(--teal);
+        }
+
+        .faq-item.active .faq-icon { transform: rotate(45deg); background: linear-gradient(135deg, var(--teal), var(--green)); color: var(--white); }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.35s ease, padding 0.35s ease;
+        }
+
+        .faq-item.active .faq-answer { max-height: 300px; }
+
+        .faq-answer p {
+            padding: 0 0 20px;
+            font-size: 0.92rem;
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
         .service-detail { animation: slideDown 0.3s ease; }
 
         @keyframes slideDown {
@@ -953,11 +1101,12 @@
 <nav class="navbar" id="navbar">
     <div class="container">
         <a href="#" class="nav-logo">
-            <img src="Logo2.png" alt="GleamHub Cleaning Services">
+            <img src="Logo2.png" alt="GleamHub Cleaning Services - Professional Cleaners in Wirral, Liverpool and Chester">
         </a>
         <div class="nav-links">
             <a href="#services">Services</a>
             <a href="#areas">Areas</a>
+            <a href="#faq">FAQ</a>
             <a href="#contact">Contact</a>
             <a href="tel:03300432580" class="nav-phone">
                 <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1.003 1.003 0 011.01-.24c1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.1.31.03.66-.25 1.01l-2.2 2.21z"/></svg>
@@ -976,6 +1125,7 @@
 <div class="mobile-overlay" id="mobileNav">
     <a href="#services" onclick="closeMobile()">Services</a>
     <a href="#areas" onclick="closeMobile()">Areas</a>
+    <a href="#faq" onclick="closeMobile()">FAQ</a>
     <a href="#contact" onclick="closeMobile()">Contact</a>
     <a href="tel:03300432580" class="nav-phone" onclick="closeMobile()">
         <svg viewBox="0 0 24 24" style="width:18px;height:18px;fill:currentColor"><path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1.003 1.003 0 011.01-.24c1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.1.31.03.66-.25 1.01l-2.2 2.21z"/></svg>
@@ -987,7 +1137,7 @@
 <section class="hero" id="hero">
     <div class="hero-particles" id="particles"></div>
     <div class="hero-content">
-        <img src="Logo2.png" alt="GleamHub Cleaning Services" class="hero-logo">
+        <img src="Logo2.png" alt="GleamHub Cleaning Services - Professional Cleaners in Wirral, Liverpool and Chester" class="hero-logo">
         <h1>Professional Cleaning That <span>Gleams</span></h1>
         <p>Expert deep cleaning, biohazard, carpet, window and commercial cleaning services across the Wirral, Liverpool and Chester.</p>
         <div class="hero-buttons">
@@ -1178,6 +1328,165 @@
         </div>
     </div>
 </section>
+
+<!-- FAQ -->
+<section class="section faq" id="faq">
+    <div class="container">
+        <div class="section-header fade-up">
+            <span class="section-label">FAQ</span>
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <p class="section-subtitle">Got questions? We've got answers.</p>
+        </div>
+        <div class="faq-list">
+            <div class="faq-item fade-up">
+                <button class="faq-question" aria-expanded="false">
+                    How much does a deep clean cost in the Wirral, Liverpool or Chester?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Every property is different, so we provide free, no-obligation quotes tailored to your needs. Pricing depends on property size, condition and the level of cleaning required. Contact us for a fast quote — most are returned within the hour.</p>
+                </div>
+            </div>
+            <div class="faq-item fade-up">
+                <button class="faq-question" aria-expanded="false">
+                    Are your cleaning staff DBS-checked and insured?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Yes. Every member of the GleamHub team is fully DBS-checked, insured and professionally trained. We take security seriously so you can have complete peace of mind when we enter your home or business.</p>
+                </div>
+            </div>
+            <div class="faq-item fade-up">
+                <button class="faq-question" aria-expanded="false">
+                    What areas do you cover for cleaning services?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>We cover the Wirral (including Birkenhead, Wallasey, Heswall, West Kirby, Bebington and Neston), Liverpool (including Bootle, Crosby, Huyton and Kirkby) and Chester (including Ellesmere Port, Broughton, Saltney and Blacon).</p>
+                </div>
+            </div>
+            <div class="faq-item fade-up">
+                <button class="faq-question" aria-expanded="false">
+                    Do you offer same-day or emergency cleaning?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Yes. We offer same-day availability for most domestic cleaning services, subject to capacity. For biohazard and trauma cleaning, we provide a 24/7 emergency response service across all areas we cover.</p>
+                </div>
+            </div>
+            <div class="faq-item fade-up">
+                <button class="faq-question" aria-expanded="false">
+                    What's included in an end of tenancy clean?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Our end of tenancy cleans cover every room from top to bottom — kitchens (including oven and appliances), bathrooms, bedrooms, living areas, windows (interior), skirting boards, light fittings and more. The clean is designed to meet letting agent and landlord standards to help secure your full deposit return.</p>
+                </div>
+            </div>
+            <div class="faq-item fade-up">
+                <button class="faq-question" aria-expanded="false">
+                    Can you clean offices, pubs and commercial premises?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Absolutely. We provide tailored commercial cleaning contracts for offices, pubs, bars, restaurants, retail shops, gyms and more. We offer flexible scheduling — including early mornings, evenings and weekends — to minimise disruption to your business.</p>
+                </div>
+            </div>
+            <div class="faq-item fade-up">
+                <button class="faq-question" aria-expanded="false">
+                    Do you use eco-friendly cleaning products?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Yes. We use professional-grade, eco-friendly and non-toxic cleaning products that are safe for families, children and pets. If you have specific allergies or sensitivities, let us know and we'll accommodate your requirements.</p>
+                </div>
+            </div>
+            <div class="faq-item fade-up">
+                <button class="faq-question" aria-expanded="false">
+                    How do I book a carpet or upholstery clean?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Simply fill in our quote form or call us on 0330 043 2580. Let us know how many rooms or items need cleaning and we'll provide a quick quote. We use professional hot water extraction and dry cleaning methods for outstanding results.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ Schema -->
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "How much does a deep clean cost in the Wirral, Liverpool or Chester?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Every property is different, so we provide free, no-obligation quotes tailored to your needs. Pricing depends on property size, condition and the level of cleaning required. Contact us for a fast quote — most are returned within the hour."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Are your cleaning staff DBS-checked and insured?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. Every member of the GleamHub team is fully DBS-checked, insured and professionally trained. We take security seriously so you can have complete peace of mind when we enter your home or business."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "What areas do you cover for cleaning services?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "We cover the Wirral (including Birkenhead, Wallasey, Heswall, West Kirby, Bebington and Neston), Liverpool (including Bootle, Crosby, Huyton and Kirkby) and Chester (including Ellesmere Port, Broughton, Saltney and Blacon)."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Do you offer same-day or emergency cleaning?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. We offer same-day availability for most domestic cleaning services, subject to capacity. For biohazard and trauma cleaning, we provide a 24/7 emergency response service across all areas we cover."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "What's included in an end of tenancy clean?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Our end of tenancy cleans cover every room from top to bottom — kitchens (including oven and appliances), bathrooms, bedrooms, living areas, windows (interior), skirting boards, light fittings and more. The clean is designed to meet letting agent and landlord standards to help secure your full deposit return."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Can you clean offices, pubs and commercial premises?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Absolutely. We provide tailored commercial cleaning contracts for offices, pubs, bars, restaurants, retail shops, gyms and more. We offer flexible scheduling — including early mornings, evenings and weekends — to minimise disruption to your business."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Do you use eco-friendly cleaning products?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. We use professional-grade, eco-friendly and non-toxic cleaning products that are safe for families, children and pets. If you have specific allergies or sensitivities, let us know and we'll accommodate your requirements."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "How do I book a carpet or upholstery clean?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Simply fill in our quote form or call us on 0330 043 2580. Let us know how many rooms or items need cleaning and we'll provide a quick quote. We use professional hot water extraction and dry cleaning methods for outstanding results."
+            }
+        }
+    ]
+}
+</script>
 
 <!-- CTA Banner -->
 <section class="cta-banner">
@@ -1542,31 +1851,31 @@
             <div>
                 <h4>Services</h4>
                 <ul>
-                    <li><a href="#services">Deep Cleaning</a></li>
-                    <li><a href="#services">Biohazard Cleaning</a></li>
-                    <li><a href="#services">Carpet Cleaning</a></li>
-                    <li><a href="#services">Upholstery Cleaning</a></li>
-                    <li><a href="#services">Window Cleaning</a></li>
+                    <li><a href="deep-cleaning-wirral.html">Deep Cleaning</a></li>
+                    <li><a href="biohazard-cleaning-wirral.html">Biohazard Cleaning</a></li>
+                    <li><a href="carpet-cleaning-wirral.html">Carpet Cleaning</a></li>
+                    <li><a href="upholstery-cleaning-wirral.html">Upholstery Cleaning</a></li>
+                    <li><a href="window-cleaning-wirral.html">Window Cleaning</a></li>
                 </ul>
             </div>
             <div>
                 <h4>More Services</h4>
                 <ul>
-                    <li><a href="#services">End of Tenancy</a></li>
-                    <li><a href="#services">Commercial Cleaning</a></li>
-                    <li><a href="#services">Office Cleaning</a></li>
-                    <li><a href="#services">Pub &amp; Bar Cleaning</a></li>
-                    <li><a href="#services">Retail Cleaning</a></li>
+                    <li><a href="end-of-tenancy-cleaning-wirral.html">End of Tenancy</a></li>
+                    <li><a href="commercial-cleaning-wirral.html">Commercial Cleaning</a></li>
+                    <li><a href="commercial-cleaning-liverpool.html">Office Cleaning</a></li>
+                    <li><a href="commercial-cleaning-chester.html">Pub &amp; Bar Cleaning</a></li>
+                    <li><a href="carpet-cleaning-liverpool.html">Carpet Cleaning Liverpool</a></li>
                 </ul>
             </div>
             <div>
                 <h4>Areas</h4>
                 <ul>
-                    <li><a href="#areas">Wirral</a></li>
-                    <li><a href="#areas">Liverpool</a></li>
-                    <li><a href="#areas">Chester</a></li>
-                    <li><a href="#areas">Ellesmere Port</a></li>
-                    <li><a href="#areas">Birkenhead</a></li>
+                    <li><a href="deep-cleaning-wirral.html">Wirral</a></li>
+                    <li><a href="deep-cleaning-liverpool.html">Liverpool</a></li>
+                    <li><a href="deep-cleaning-chester.html">Chester</a></li>
+                    <li><a href="end-of-tenancy-cleaning-liverpool.html">Ellesmere Port</a></li>
+                    <li><a href="window-cleaning-wirral.html">Birkenhead</a></li>
                 </ul>
             </div>
         </div>
@@ -1654,6 +1963,22 @@
         fields.forEach(id => {
             const el = document.getElementById(id);
             if (el) el.style.display = el.classList.contains('form-row') ? 'grid' : 'block';
+        });
+    });
+
+    // FAQ accordion
+    document.querySelectorAll('.faq-question').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const item = btn.parentElement;
+            const isActive = item.classList.contains('active');
+            // Close all
+            document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+            document.querySelectorAll('.faq-question').forEach(b => b.setAttribute('aria-expanded', 'false'));
+            // Open clicked (if it wasn't already open)
+            if (!isActive) {
+                item.classList.add('active');
+                btn.setAttribute('aria-expanded', 'true');
+            }
         });
     });
 
