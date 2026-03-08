@@ -975,6 +975,57 @@
             box-shadow: 0 6px 24px rgba(14,116,144,0.4);
         }
 
+        /* Offer Banner */
+        .offer-banner {
+            display: none;
+            background: linear-gradient(135deg, var(--green), var(--teal));
+            color: var(--white);
+            padding: 14px 20px;
+            border-radius: var(--radius);
+            margin-bottom: 20px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 0.95rem;
+            align-items: center;
+            gap: 10px;
+            animation: offerPulse 2s ease-in-out;
+        }
+
+        .offer-banner.active { display: flex; }
+
+        .offer-banner svg {
+            width: 22px;
+            height: 22px;
+            fill: currentColor;
+            flex-shrink: 0;
+        }
+
+        .offer-banner span { flex: 1; }
+
+        .offer-banner .offer-dismiss {
+            background: rgba(255,255,255,0.2);
+            border: none;
+            color: var(--white);
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            flex-shrink: 0;
+        }
+
+        .offer-banner .offer-dismiss:hover { background: rgba(255,255,255,0.35); }
+
+        @keyframes offerPulse {
+            0% { transform: scale(0.95); opacity: 0; }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
         /* ===== FOOTER ===== */
         .footer {
             background: var(--navy-deep);
@@ -1786,6 +1837,14 @@
 
             <div class="contact-form fade-up">
                 <h3>Send Us a Message</h3>
+
+                <!-- Offer Banner (shown when arriving from offers page) -->
+                <div class="offer-banner" id="offerBanner">
+                    <svg viewBox="0 0 24 24"><path d="M21.41 11.58l-9-9C12.05 2.22 11.55 2 11 2H4c-1.1 0-2 .9-2 2v7c0 .55.22 1.05.59 1.42l9 9c.36.36.86.58 1.41.58.55 0 1.05-.22 1.41-.59l7-7c.37-.36.59-.86.59-1.41 0-.55-.23-1.06-.59-1.42zM5.5 7C4.67 7 4 6.33 4 5.5S4.67 4 5.5 4 7 4.67 7 5.5 6.33 7 5.5 7z"/></svg>
+                    <span id="offerText"></span>
+                    <button type="button" class="offer-dismiss" onclick="document.getElementById('offerBanner').classList.remove('active');document.getElementById('offerField').value='';" aria-label="Remove offer">&times;</button>
+                </div>
+
                 <form action="https://formsubmit.co/hello@thegleamhub.co.uk" method="POST">
                     <!-- FormSubmit config -->
                     <input type="hidden" name="_subject" value="New Quote Request from GleamHub Website">
@@ -1793,6 +1852,7 @@
                     <input type="hidden" name="_template" value="table">
                     <input type="hidden" name="_next" value="">
                     <input type="text" name="_honey" style="display:none">
+                    <input type="hidden" name="Selected Offer" id="offerField" value="">
 
                     <div class="form-row">
                         <div class="form-group">
@@ -2212,20 +2272,52 @@
         });
     });
 
-    // Set _next to current page for FormSubmit redirect
-    const currentUrl = window.location.href.split('?')[0];
-    const nextInput = document.querySelector('input[name="_next"]');
-    if (nextInput) nextInput.value = currentUrl + '?submitted=true';
+    // Read offer from URL parameter (from offers page)
+    const urlParams = new URLSearchParams(window.location.search);
+    const selectedOffer = urlParams.get('offer');
+    if (selectedOffer) {
+        const offerBanner = document.getElementById('offerBanner');
+        const offerText = document.getElementById('offerText');
+        const offerField = document.getElementById('offerField');
+        const subjectField = document.querySelector('input[name="_subject"]');
+        if (offerBanner && offerText && offerField) {
+            offerText.textContent = 'Claiming Offer: ' + selectedOffer;
+            offerField.value = selectedOffer;
+            offerBanner.classList.add('active');
+            // Update email subject to include the offer
+            if (subjectField) {
+                subjectField.value = 'Quote Request — Offer: ' + selectedOffer;
+            }
+        }
+        // Clean the offer param from URL without losing hash
+        const cleanUrl = window.location.href.split('?')[0] + (window.location.hash || '');
+        window.history.replaceState({}, '', cleanUrl);
+    }
 
-    // Show thank-you message after form submission
+    // Set _next to current page for FormSubmit redirect
+    const currentUrl = window.location.href.split('?')[0].split('#')[0];
+    const nextInput = document.querySelector('input[name="_next"]');
+    if (nextInput) nextInput.value = currentUrl + '?submitted=true#contact';
+
+    // Show thank-you message after form submission and scroll to it
     if (window.location.search.includes('submitted=true')) {
         const formEl = document.querySelector('.contact-form form');
+        const offerBannerEl = document.getElementById('offerBanner');
+        // Hide offer banner if visible
+        if (offerBannerEl) offerBannerEl.classList.remove('active');
         if (formEl) {
-            formEl.innerHTML = '<div style="text-align:center;padding:40px 0;">' +
+            formEl.innerHTML = '<div id="formConfirmation" style="text-align:center;padding:40px 0;">' +
                 '<svg viewBox="0 0 24 24" style="width:60px;height:60px;fill:#3dba5e;margin-bottom:16px;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>' +
                 '<h3 style="font-family:Montserrat,sans-serif;color:#0b2a4a;margin-bottom:8px;">Thank You!</h3>' +
                 '<p style="color:#64748b;">Your quote request has been sent. We\'ll be in touch shortly.</p>' +
                 '</div>';
+            // Scroll to the confirmation message
+            setTimeout(function() {
+                const confirmation = document.getElementById('formConfirmation');
+                if (confirmation) {
+                    confirmation.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            }, 300);
         }
         // Clean URL
         window.history.replaceState({}, '', currentUrl);
