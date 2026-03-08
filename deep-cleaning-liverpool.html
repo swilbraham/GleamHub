@@ -722,6 +722,87 @@
 
         .form-group textarea { resize: vertical; min-height: 100px; }
 
+        .service-checkboxes {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+        .service-checkbox {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 12px;
+            background: rgba(14,116,144,0.04);
+            border: 2px solid var(--gray-light);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-family: 'Open Sans', sans-serif;
+            font-size: 0.88rem;
+            color: var(--text);
+        }
+        .service-checkbox:hover {
+            border-color: var(--teal);
+            background: rgba(14,116,144,0.08);
+        }
+        .service-checkbox input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            accent-color: var(--teal);
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+        .service-checkbox.checked {
+            border-color: var(--teal);
+            background: rgba(14,116,144,0.1);
+            font-weight: 600;
+            color: var(--navy);
+        }
+        .offer-strip {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--teal) 100%);
+            padding: 20px 0;
+            text-align: center;
+        }
+        .offer-strip-inner {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        .offer-strip-badge {
+            background: var(--green);
+            color: white;
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .offer-strip-text {
+            color: white;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+        .offer-strip-link {
+            background: white;
+            color: var(--navy);
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.82rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        .offer-strip-link:hover {
+            background: var(--green-light);
+            color: white;
+        }
+
         .form-row {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -893,6 +974,7 @@
         }
 
         @media (max-width: 480px) {
+            .service-checkboxes { grid-template-columns: 1fr; }
             .hero-buttons, .cta-buttons { flex-direction: column; align-items: center; }
             .btn { width: 100%; justify-content: center; }
             .checklist-wrapper { padding: 32px 20px; }
@@ -1065,6 +1147,17 @@
     </div>
 </section>
 
+<!-- Offer Banner -->
+<section class="offer-strip">
+    <div class="container">
+        <div class="offer-strip-inner">
+            <span class="offer-strip-badge">Special Offer</span>
+            <span class="offer-strip-text">10% Off Spring Deep Clean</span>
+            <a href="/offers" class="offer-strip-link">View Offers &rarr;</a>
+        </div>
+    </div>
+</section>
+
 <!-- Quote Form Section -->
 <section class="quote-section" id="quote-form">
     <div class="container">
@@ -1120,6 +1213,20 @@
                     <div class="form-group">
                         <label for="email">Email Address</label>
                         <input type="email" id="email" name="email" required placeholder="you@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label>Also Interested In? <span style="font-weight:400;color:#64748b;font-size:0.78rem;">(select all that apply)</span></label>
+                        <div class="service-checkboxes">
+                            <label class="service-checkbox checked"><input type="checkbox" value="Deep Cleaning" checked><span>Deep Cleaning</span></label>
+                            <label class="service-checkbox"><input type="checkbox" value="Oven Cleaning"><span>Oven Cleaning</span></label>
+                            <label class="service-checkbox"><input type="checkbox" value="Carpet Cleaning"><span>Carpet Cleaning</span></label>
+                            <label class="service-checkbox"><input type="checkbox" value="Upholstery Cleaning"><span>Upholstery Cleaning</span></label>
+                            <label class="service-checkbox"><input type="checkbox" value="Window Cleaning"><span>Window Cleaning</span></label>
+                            <label class="service-checkbox"><input type="checkbox" value="End of Tenancy"><span>End of Tenancy</span></label>
+                            <label class="service-checkbox"><input type="checkbox" value="Commercial Cleaning"><span>Commercial Cleaning</span></label>
+                            <label class="service-checkbox"><input type="checkbox" value="Biohazard Cleaning"><span>Biohazard Cleaning</span></label>
+                        </div>
+                        <input type="hidden" id="servicesSelected" name="service" value="Deep Cleaning">
                     </div>
                     <div class="form-group">
                         <label for="postcode">Postcode</label>
@@ -1239,6 +1346,19 @@
     }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
     document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+    // Multi-service checkboxes
+    const serviceCheckboxes = document.querySelectorAll('.service-checkbox input[type="checkbox"]');
+    const servicesHidden = document.getElementById('servicesSelected');
+    if (serviceCheckboxes.length && servicesHidden) {
+        function updateServices() {
+            const checked = Array.from(serviceCheckboxes).filter(cb => cb.checked).map(cb => cb.value);
+            servicesHidden.value = checked.join(', ');
+            serviceCheckboxes.forEach(cb => cb.closest('.service-checkbox').classList.toggle('checked', cb.checked));
+        }
+        serviceCheckboxes.forEach(cb => cb.addEventListener('change', updateServices));
+        updateServices();
+    }
 </script>
 </body>
 </html>

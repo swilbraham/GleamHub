@@ -26,6 +26,10 @@
     <meta name="twitter:description" content="Professional cleaning services across Merseyside &amp; Cheshire. Deep cleaning, oven cleaning, biohazard, carpets, windows &amp; more. Free quotes.">
     <meta name="twitter:image" content="https://www.gleamhub.co.uk/Logo2.png">
 
+    <!-- Google Ads / Facebook Pixel — paste your tracking code here -->
+    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=YOUR-GA4-ID"></script> -->
+    <!-- <meta name="facebook-domain-verification" content="YOUR-VERIFICATION-CODE"> -->
+
     <!-- Schema: LocalBusiness -->
     <script type="application/ld+json">
     {
@@ -882,6 +886,46 @@
 
         .form-group textarea { resize: vertical; min-height: 100px; }
 
+        .service-checkboxes {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+        .service-checkbox {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 12px;
+            background: rgba(14,116,144,0.04);
+            border: 2px solid var(--gray-light);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-family: 'Open Sans', sans-serif;
+            font-size: 0.88rem;
+            color: var(--text);
+        }
+        .service-checkbox:hover {
+            border-color: var(--teal);
+            background: rgba(14,116,144,0.08);
+        }
+        .service-checkbox input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            accent-color: var(--teal);
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+        .service-checkbox.checked {
+            border-color: var(--teal);
+            background: rgba(14,116,144,0.1);
+            font-weight: 600;
+            color: var(--navy);
+        }
+        @media (max-width: 480px) {
+            .service-checkboxes { grid-template-columns: 1fr; }
+        }
+
         /* ===== FAQ ===== */
         .faq { background: var(--white); }
 
@@ -1282,7 +1326,7 @@
     <div class="hero-content">
         <img src="Logo2.png" alt="GleamHub Cleaning Services - Professional Cleaners in Wirral, Liverpool and Chester" class="hero-logo">
         <h1>Professional Cleaning That <span>Gleams</span></h1>
-        <p>Expert deep cleaning, biohazard, carpet, window and commercial cleaning services across the Wirral, Liverpool and Chester.</p>
+        <p>Expert deep cleaning, oven cleaning, carpet, upholstery, window, end of tenancy and commercial cleaning across the Wirral, Liverpool and Chester.</p>
         <div class="hero-buttons">
             <a href="#contact" class="btn btn-primary" id="openContactBtn">
                 <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
@@ -1293,6 +1337,9 @@
                 Call 0330 043 2580
             </a>
         </div>
+        <p style="margin-top:16px;font-size:0.9rem;opacity:0.9;">
+            <a href="/offers" style="color:#5fd97d;font-weight:600;text-decoration:underline;">View Current Offers</a> &mdash; Oven clean from &pound;79 | 10% off deep cleans
+        </p>
     </div>
 </section>
 
@@ -1880,6 +1927,10 @@
                     <input type="hidden" name="_next" value="">
                     <input type="text" name="_honey" style="display:none">
                     <input type="hidden" name="Selected Offer" id="offerField" value="">
+                    <!-- Ad campaign tracking -->
+                    <input type="hidden" name="utm_source" id="utm_source" value="">
+                    <input type="hidden" name="utm_medium" id="utm_medium" value="">
+                    <input type="hidden" name="utm_campaign" id="utm_campaign" value="">
 
                     <div class="form-row">
                         <div class="form-group">
@@ -1897,30 +1948,29 @@
                         <input type="email" id="email" name="email" placeholder="john@example.com" required>
                     </div>
 
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="service">Service Required *</label>
-                            <select id="service" name="service" required>
-                                <option value="" disabled selected>Select a service</option>
-                                <option value="Deep Cleaning">Deep Cleaning</option>
-                                <option value="Oven Cleaning">Oven Cleaning</option>
-                                <option value="Biohazard Cleaning">Biohazard Cleaning</option>
-                                <option value="Carpet Cleaning">Carpet Cleaning</option>
-                                <option value="Upholstery Cleaning">Upholstery Cleaning</option>
-                                <option value="Window Cleaning">Window Cleaning</option>
-                                <option value="End of Tenancy Cleaning">End of Tenancy Cleaning</option>
-                                <option value="Commercial Cleaning">Commercial Cleaning</option>
-                            </select>
+                    <div class="form-group">
+                        <label>Services Required * <span style="font-weight:400;color:#64748b;font-size:0.78rem;">(select all that apply)</span></label>
+                        <div class="service-checkboxes">
+                            <label class="service-checkbox"><input type="checkbox" value="Deep Cleaning"><span>Deep Cleaning</span></label>
+                            <label class="service-checkbox"><input type="checkbox" value="Oven Cleaning"><span>Oven Cleaning</span></label>
+                            <label class="service-checkbox"><input type="checkbox" value="Carpet Cleaning"><span>Carpet Cleaning</span></label>
+                            <label class="service-checkbox"><input type="checkbox" value="Upholstery Cleaning"><span>Upholstery Cleaning</span></label>
+                            <label class="service-checkbox"><input type="checkbox" value="Window Cleaning"><span>Window Cleaning</span></label>
+                            <label class="service-checkbox"><input type="checkbox" value="End of Tenancy"><span>End of Tenancy</span></label>
+                            <label class="service-checkbox"><input type="checkbox" value="Commercial Cleaning"><span>Commercial Cleaning</span></label>
+                            <label class="service-checkbox"><input type="checkbox" value="Biohazard Cleaning"><span>Biohazard Cleaning</span></label>
                         </div>
-                        <div class="form-group">
-                            <label for="area">Your Area *</label>
-                            <select id="area" name="area" required>
-                                <option value="" disabled selected>Select area</option>
-                                <option value="Wirral">Wirral</option>
-                                <option value="Liverpool">Liverpool</option>
-                                <option value="Chester">Chester</option>
-                            </select>
-                        </div>
+                        <input type="hidden" id="servicesSelected" name="service" value="">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="area">Your Area *</label>
+                        <select id="area" name="area" required>
+                            <option value="" disabled selected>Select area</option>
+                            <option value="Wirral">Wirral</option>
+                            <option value="Liverpool">Liverpool</option>
+                            <option value="Chester">Chester</option>
+                        </select>
                     </div>
 
                     <!-- Shared property fields -->
@@ -2289,8 +2339,9 @@
 
     fadeEls.forEach(el => observer.observe(el));
 
-    // Service-specific form fields
-    const serviceSelect = document.getElementById('service');
+    // Service-specific form fields (multi-select checkboxes)
+    const serviceCheckboxes = document.querySelectorAll('.service-checkbox input[type="checkbox"]');
+    const servicesHidden = document.getElementById('servicesSelected');
     const serviceFields = {
         'Deep Cleaning':          ['detail-property-type', 'detail-bedrooms-bathrooms', 'detail-date'],
         'Oven Cleaning':          ['detail-oven', 'detail-oven-condition', 'detail-date'],
@@ -2298,29 +2349,43 @@
         'Carpet Cleaning':        ['detail-carpet', 'detail-carpet-stains', 'detail-date'],
         'Upholstery Cleaning':    ['detail-upholstery', 'detail-upholstery-fabric', 'detail-date'],
         'Window Cleaning':        ['detail-windows', 'detail-windows-extras', 'detail-date'],
-        'End of Tenancy Cleaning':['detail-property-type', 'detail-bedrooms-bathrooms', 'detail-tenancy-furnished', 'detail-tenancy-oven', 'detail-date'],
+        'End of Tenancy':         ['detail-property-type', 'detail-bedrooms-bathrooms', 'detail-tenancy-furnished', 'detail-tenancy-oven', 'detail-date'],
         'Commercial Cleaning':    ['detail-commercial', 'detail-commercial-sqft', 'detail-date']
     };
 
-    serviceSelect.addEventListener('change', function() {
-        // Hide all service detail fields and reset values
-        document.querySelectorAll('.service-detail').forEach(el => {
-            el.style.display = 'none';
-            el.querySelectorAll('select, input').forEach(input => {
-                if (input.tagName === 'SELECT') {
-                    input.selectedIndex = 0;
-                } else {
-                    input.value = '';
+    function updateServiceFields() {
+        const checked = Array.from(serviceCheckboxes).filter(cb => cb.checked).map(cb => cb.value);
+        servicesHidden.value = checked.join(', ');
+        // Toggle checked class on labels
+        serviceCheckboxes.forEach(cb => {
+            cb.closest('.service-checkbox').classList.toggle('checked', cb.checked);
+        });
+        // Hide all service detail fields
+        document.querySelectorAll('.service-detail').forEach(el => { el.style.display = 'none'; });
+        // Show relevant fields for all selected services
+        const shownIds = new Set();
+        checked.forEach(service => {
+            (serviceFields[service] || []).forEach(id => {
+                if (!shownIds.has(id)) {
+                    const el = document.getElementById(id);
+                    if (el) el.style.display = el.classList.contains('form-row') ? 'grid' : 'block';
+                    shownIds.add(id);
                 }
             });
         });
-        // Show relevant fields
-        const fields = serviceFields[this.value] || [];
-        fields.forEach(id => {
-            const el = document.getElementById(id);
-            if (el) el.style.display = el.classList.contains('form-row') ? 'grid' : 'block';
+    }
+    serviceCheckboxes.forEach(cb => cb.addEventListener('change', updateServiceFields));
+
+    // Form validation — require at least one service
+    const contactForm = document.querySelector('.contact-form form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            if (!servicesHidden.value) {
+                e.preventDefault();
+                alert('Please select at least one service.');
+            }
         });
-    });
+    }
 
     // FAQ accordion
     document.querySelectorAll('.faq-question').forEach(btn => {
@@ -2359,6 +2424,13 @@
         const cleanUrl = window.location.href.split('?')[0] + (window.location.hash || '');
         window.history.replaceState({}, '', cleanUrl);
     }
+
+    // Capture UTM parameters from ad campaigns
+    ['utm_source', 'utm_medium', 'utm_campaign'].forEach(param => {
+        const val = urlParams.get(param);
+        const field = document.getElementById(param);
+        if (val && field) field.value = val;
+    });
 
     // Set _next to current page for FormSubmit redirect
     const currentUrl = window.location.href.split('?')[0].split('#')[0];
