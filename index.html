@@ -704,6 +704,13 @@
 
         .form-group textarea { resize: vertical; min-height: 100px; }
 
+        .service-detail { animation: slideDown 0.3s ease; }
+
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
         .form-row {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -1289,9 +1296,232 @@
                         </div>
                     </div>
 
+                    <!-- Shared property fields -->
+                    <div class="form-group service-detail" id="detail-property-type" style="display:none;">
+                        <label for="propertyType">Property Type *</label>
+                        <select id="propertyType" name="Property Type">
+                            <option value="" disabled selected>Select property type</option>
+                            <option value="Flat / Apartment">Flat / Apartment</option>
+                            <option value="Terraced House">Terraced House</option>
+                            <option value="Semi-Detached">Semi-Detached</option>
+                            <option value="Detached">Detached</option>
+                            <option value="Bungalow">Bungalow</option>
+                            <option value="HMO / Shared House">HMO / Shared House</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-row service-detail" id="detail-bedrooms-bathrooms" style="display:none;">
+                        <div class="form-group">
+                            <label for="bedrooms">Number of Bedrooms *</label>
+                            <select id="bedrooms" name="Bedrooms">
+                                <option value="" disabled selected>Select</option>
+                                <option value="Studio">Studio</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5+">5+</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="bathrooms">Number of Bathrooms *</label>
+                            <select id="bathrooms" name="Bathrooms">
+                                <option value="" disabled selected>Select</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4+">4+</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Carpet Cleaning -->
+                    <div class="form-row service-detail" id="detail-carpet" style="display:none;">
+                        <div class="form-group">
+                            <label for="carpetRooms">How Many Carpeted Rooms? *</label>
+                            <select id="carpetRooms" name="Carpeted Rooms">
+                                <option value="" disabled selected>Select</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6+">6+</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="carpetStairs">Include Stairs / Landing?</label>
+                            <select id="carpetStairs" name="Stairs and Landing">
+                                <option value="" disabled selected>Select</option>
+                                <option value="No">No</option>
+                                <option value="Stairs only">Stairs only</option>
+                                <option value="Stairs + Landing">Stairs + Landing</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group service-detail" id="detail-carpet-stains" style="display:none;">
+                        <label for="carpetStains">Any Heavy Stains or Pet Odours?</label>
+                        <select id="carpetStains" name="Heavy Stains or Pet Odours">
+                            <option value="" disabled selected>Select</option>
+                            <option value="No">No</option>
+                            <option value="Minor stains">Minor stains</option>
+                            <option value="Heavy stains">Heavy stains</option>
+                            <option value="Pet odours">Pet odours</option>
+                            <option value="Heavy stains + Pet odours">Heavy stains + Pet odours</option>
+                        </select>
+                    </div>
+
+                    <!-- Upholstery Cleaning -->
+                    <div class="form-group service-detail" id="detail-upholstery" style="display:none;">
+                        <label for="upholsteryItems">Items to Clean (select all that apply)</label>
+                        <select id="upholsteryItems" name="Upholstery Items">
+                            <option value="" disabled selected>Select main item</option>
+                            <option value="Sofa (2-seater)">Sofa (2-seater)</option>
+                            <option value="Sofa (3-seater)">Sofa (3-seater)</option>
+                            <option value="Corner / L-shaped Sofa">Corner / L-shaped Sofa</option>
+                            <option value="Armchair">Armchair</option>
+                            <option value="Dining Chairs">Dining Chairs</option>
+                            <option value="Mattress (Single)">Mattress (Single)</option>
+                            <option value="Mattress (Double/King)">Mattress (Double/King)</option>
+                            <option value="Multiple Items">Multiple Items (describe below)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group service-detail" id="detail-upholstery-fabric" style="display:none;">
+                        <label for="fabricType">Fabric Type</label>
+                        <select id="fabricType" name="Fabric Type">
+                            <option value="" disabled selected>Select</option>
+                            <option value="Cotton / Polyester">Cotton / Polyester</option>
+                            <option value="Leather">Leather</option>
+                            <option value="Velvet">Velvet</option>
+                            <option value="Microfibre">Microfibre</option>
+                            <option value="Not Sure">Not Sure</option>
+                        </select>
+                    </div>
+
+                    <!-- Window Cleaning -->
+                    <div class="form-row service-detail" id="detail-windows" style="display:none;">
+                        <div class="form-group">
+                            <label for="windowStoreys">Number of Storeys *</label>
+                            <select id="windowStoreys" name="Storeys">
+                                <option value="" disabled selected>Select</option>
+                                <option value="1 (Bungalow)">1 (Bungalow)</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4+">4+</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="windowType">Interior, Exterior or Both? *</label>
+                            <select id="windowType" name="Window Cleaning Type">
+                                <option value="" disabled selected>Select</option>
+                                <option value="Exterior only">Exterior only</option>
+                                <option value="Interior only">Interior only</option>
+                                <option value="Both">Both (Interior + Exterior)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group service-detail" id="detail-windows-extras" style="display:none;">
+                        <label for="windowExtras">Include Conservatory / Skylights?</label>
+                        <select id="windowExtras" name="Window Extras">
+                            <option value="" disabled selected>Select</option>
+                            <option value="No">No</option>
+                            <option value="Conservatory">Conservatory</option>
+                            <option value="Skylights">Skylights</option>
+                            <option value="Both">Conservatory + Skylights</option>
+                        </select>
+                    </div>
+
+                    <!-- End of Tenancy -->
+                    <div class="form-group service-detail" id="detail-tenancy-furnished" style="display:none;">
+                        <label for="furnished">Is the Property Furnished or Unfurnished? *</label>
+                        <select id="furnished" name="Furnished Status">
+                            <option value="" disabled selected>Select</option>
+                            <option value="Furnished">Furnished</option>
+                            <option value="Unfurnished">Unfurnished</option>
+                            <option value="Partially furnished">Partially Furnished</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group service-detail" id="detail-tenancy-oven" style="display:none;">
+                        <label for="ovenClean">Include Oven Clean?</label>
+                        <select id="ovenClean" name="Oven Clean">
+                            <option value="" disabled selected>Select</option>
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </select>
+                    </div>
+
+                    <!-- Commercial Cleaning -->
+                    <div class="form-row service-detail" id="detail-commercial" style="display:none;">
+                        <div class="form-group">
+                            <label for="premisesType">Type of Premises *</label>
+                            <select id="premisesType" name="Premises Type">
+                                <option value="" disabled selected>Select</option>
+                                <option value="Office">Office</option>
+                                <option value="Pub / Bar">Pub / Bar</option>
+                                <option value="Restaurant / Cafe">Restaurant / Cafe</option>
+                                <option value="Retail Shop">Retail Shop</option>
+                                <option value="Warehouse">Warehouse</option>
+                                <option value="Gym / Leisure">Gym / Leisure</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="commercialFreq">How Often? *</label>
+                            <select id="commercialFreq" name="Cleaning Frequency">
+                                <option value="" disabled selected>Select</option>
+                                <option value="One-off">One-off</option>
+                                <option value="Daily">Daily</option>
+                                <option value="Weekly">Weekly</option>
+                                <option value="Fortnightly">Fortnightly</option>
+                                <option value="Monthly">Monthly</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group service-detail" id="detail-commercial-sqft" style="display:none;">
+                        <label for="sqft">Approx. Size (sq ft)</label>
+                        <input type="text" id="sqft" name="Approx Size (sq ft)" placeholder="e.g. 1500">
+                    </div>
+
+                    <!-- Biohazard -->
+                    <div class="form-group service-detail" id="detail-biohazard" style="display:none;">
+                        <label for="biohazardType">Type of Biohazard *</label>
+                        <select id="biohazardType" name="Biohazard Type">
+                            <option value="" disabled selected>Select</option>
+                            <option value="Trauma / Crime Scene">Trauma / Crime Scene</option>
+                            <option value="Unattended Death">Unattended Death</option>
+                            <option value="Needle / Sharps">Needle / Sharps</option>
+                            <option value="Bodily Fluids">Bodily Fluids</option>
+                            <option value="Hoarding / Gross Filth">Hoarding / Gross Filth</option>
+                            <option value="Other / Prefer Not to Say">Other / Prefer Not to Say</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group service-detail" id="detail-biohazard-urgent" style="display:none;">
+                        <label for="biohazardUrgent">Is This Urgent?</label>
+                        <select id="biohazardUrgent" name="Urgency">
+                            <option value="" disabled selected>Select</option>
+                            <option value="Emergency (ASAP)">Emergency (ASAP)</option>
+                            <option value="Within 24 hours">Within 24 hours</option>
+                            <option value="Within a few days">Within a few days</option>
+                            <option value="Not urgent">Not urgent</option>
+                        </select>
+                    </div>
+
+                    <!-- Preferred date (all services) -->
+                    <div class="form-group service-detail" id="detail-date" style="display:none;">
+                        <label for="prefDate">Preferred Date</label>
+                        <input type="date" id="prefDate" name="Preferred Date">
+                    </div>
+
                     <div class="form-group">
-                        <label for="message">Tell Us More</label>
-                        <textarea id="message" name="message" placeholder="Please include any details about the job, property size, preferred dates, etc."></textarea>
+                        <label for="message">Anything Else We Should Know?</label>
+                        <textarea id="message" name="message" placeholder="Any additional details, access instructions, specific requirements, etc."></textarea>
                     </div>
 
                     <button type="submit" class="form-submit">Send Quote Request</button>
@@ -1394,6 +1624,38 @@
     }, { threshold: 0.15 });
 
     fadeEls.forEach(el => observer.observe(el));
+
+    // Service-specific form fields
+    const serviceSelect = document.getElementById('service');
+    const serviceFields = {
+        'Deep Cleaning':          ['detail-property-type', 'detail-bedrooms-bathrooms', 'detail-date'],
+        'Biohazard Cleaning':     ['detail-biohazard', 'detail-biohazard-urgent', 'detail-date'],
+        'Carpet Cleaning':        ['detail-carpet', 'detail-carpet-stains', 'detail-date'],
+        'Upholstery Cleaning':    ['detail-upholstery', 'detail-upholstery-fabric', 'detail-date'],
+        'Window Cleaning':        ['detail-windows', 'detail-windows-extras', 'detail-date'],
+        'End of Tenancy Cleaning':['detail-property-type', 'detail-bedrooms-bathrooms', 'detail-tenancy-furnished', 'detail-tenancy-oven', 'detail-date'],
+        'Commercial Cleaning':    ['detail-commercial', 'detail-commercial-sqft', 'detail-date']
+    };
+
+    serviceSelect.addEventListener('change', function() {
+        // Hide all service detail fields and reset values
+        document.querySelectorAll('.service-detail').forEach(el => {
+            el.style.display = 'none';
+            el.querySelectorAll('select, input').forEach(input => {
+                if (input.tagName === 'SELECT') {
+                    input.selectedIndex = 0;
+                } else {
+                    input.value = '';
+                }
+            });
+        });
+        // Show relevant fields
+        const fields = serviceFields[this.value] || [];
+        fields.forEach(id => {
+            const el = document.getElementById(id);
+            if (el) el.style.display = el.classList.contains('form-row') ? 'grid' : 'block';
+        });
+    });
 
     // Set _next to current page for FormSubmit redirect
     const currentUrl = window.location.href.split('?')[0];
