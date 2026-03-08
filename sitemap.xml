@@ -36,6 +36,26 @@
         <priority>0.8</priority>
     </url>
 
+    <!-- Oven Cleaning -->
+    <url>
+        <loc>https://www.gleamhub.co.uk/oven-cleaning-wirral.html</loc>
+        <lastmod>2026-03-08</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://www.gleamhub.co.uk/oven-cleaning-liverpool.html</loc>
+        <lastmod>2026-03-08</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://www.gleamhub.co.uk/oven-cleaning-chester.html</loc>
+        <lastmod>2026-03-08</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
     <!-- Biohazard Cleaning -->
     <url>
         <loc>https://www.gleamhub.co.uk/biohazard-cleaning-wirral.html</loc>
