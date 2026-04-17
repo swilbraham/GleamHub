@@ -240,6 +240,77 @@
 
         .nav-phone svg { width: 18px; height: 18px; fill: currentColor; }
 
+        /* ===== NAV DROPDOWNS ===== */
+        .nav-dropdown {
+            position: relative;
+        }
+
+        .nav-dropdown > a {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .nav-dropdown > a .dropdown-arrow {
+            width: 10px;
+            height: 10px;
+            fill: currentColor;
+            transition: var(--transition);
+        }
+
+        .nav-dropdown:hover > a .dropdown-arrow {
+            transform: rotate(180deg);
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            min-width: 220px;
+            background: rgba(6, 27, 50, 0.97);
+            backdrop-filter: blur(12px);
+            border-radius: var(--radius);
+            padding: 12px 0;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            box-shadow: var(--shadow-lg);
+            margin-top: 12px;
+        }
+
+        .dropdown-menu::before {
+            content: '';
+            position: absolute;
+            top: -12px;
+            left: 0;
+            right: 0;
+            height: 12px;
+        }
+
+        .nav-dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 10px 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: rgba(255,255,255,0.85) !important;
+            transition: var(--transition);
+            white-space: nowrap;
+        }
+
+        .dropdown-menu a::after { display: none !important; }
+
+        .dropdown-menu a:hover {
+            background: rgba(255,255,255,0.08);
+            color: var(--green-light) !important;
+            padding-left: 24px;
+        }
+
         .hamburger {
             display: none;
             flex-direction: column;
@@ -481,6 +552,7 @@
         }
 
         .service-card {
+            display: block;
             background: var(--white);
             border-radius: var(--radius);
             padding: 36px 28px;
@@ -488,6 +560,8 @@
             transition: var(--transition);
             position: relative;
             overflow: hidden;
+            color: inherit;
+            cursor: pointer;
         }
 
         .service-card::before {
@@ -1157,6 +1231,39 @@
 
         .mobile-overlay a:hover { color: var(--green-light); }
 
+        .mobile-submenu {
+            display: none;
+            flex-direction: column;
+            gap: 12px;
+            padding-left: 20px;
+        }
+
+        .mobile-submenu.active { display: flex; }
+
+        .mobile-submenu a {
+            font-size: 1rem !important;
+            font-weight: 500 !important;
+            color: rgba(255,255,255,0.75) !important;
+        }
+
+        .mobile-toggle {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+        }
+
+        .mobile-toggle .dropdown-arrow {
+            width: 12px;
+            height: 12px;
+            fill: currentColor;
+            transition: var(--transition);
+        }
+
+        .mobile-toggle.active .dropdown-arrow {
+            transform: rotate(180deg);
+        }
+
         /* ===== CONTACT MODAL ===== */
         .modal-overlay {
             display: none;
@@ -1289,8 +1396,27 @@
             <img src="Logo2.png" alt="GleamHub Cleaning Services - Professional Cleaners in Wirral, Liverpool and Chester">
         </a>
         <div class="nav-links">
-            <a href="#services">Services</a>
-            <a href="#areas">Areas</a>
+            <div class="nav-dropdown">
+                <a href="#services">Services <svg class="dropdown-arrow" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg></a>
+                <div class="dropdown-menu">
+                    <a href="deep-cleaning-wirral.html">Deep Cleaning</a>
+                    <a href="oven-cleaning-wirral.html">Oven Cleaning</a>
+                    <a href="biohazard-cleaning-wirral.html">Biohazard Cleaning</a>
+                    <a href="carpet-cleaning-wirral.html">Carpet Cleaning</a>
+                    <a href="upholstery-cleaning-wirral.html">Upholstery Cleaning</a>
+                    <a href="window-cleaning-wirral.html">Window Cleaning</a>
+                    <a href="end-of-tenancy-cleaning-wirral.html">End of Tenancy Cleaning</a>
+                    <a href="commercial-cleaning-wirral.html">Commercial Cleaning</a>
+                </div>
+            </div>
+            <div class="nav-dropdown">
+                <a href="#areas">Areas <svg class="dropdown-arrow" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg></a>
+                <div class="dropdown-menu">
+                    <a href="deep-cleaning-wirral.html">Wirral</a>
+                    <a href="deep-cleaning-liverpool.html">Liverpool</a>
+                    <a href="deep-cleaning-chester.html">Chester</a>
+                </div>
+            </div>
             <a href="#reviews">Reviews</a>
             <a href="/offers">Offers</a>
             <a href="#contact">Contact</a>
@@ -1309,8 +1435,23 @@
 
 <!-- Mobile Nav Overlay -->
 <div class="mobile-overlay" id="mobileNav">
-    <a href="#services" onclick="closeMobile()">Services</a>
-    <a href="#areas" onclick="closeMobile()">Areas</a>
+    <a href="javascript:void(0)" class="mobile-toggle" onclick="toggleMobileSub(this)">Services <svg class="dropdown-arrow" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg></a>
+    <div class="mobile-submenu">
+        <a href="deep-cleaning-wirral.html" onclick="closeMobile()">Deep Cleaning</a>
+        <a href="oven-cleaning-wirral.html" onclick="closeMobile()">Oven Cleaning</a>
+        <a href="biohazard-cleaning-wirral.html" onclick="closeMobile()">Biohazard Cleaning</a>
+        <a href="carpet-cleaning-wirral.html" onclick="closeMobile()">Carpet Cleaning</a>
+        <a href="upholstery-cleaning-wirral.html" onclick="closeMobile()">Upholstery Cleaning</a>
+        <a href="window-cleaning-wirral.html" onclick="closeMobile()">Window Cleaning</a>
+        <a href="end-of-tenancy-cleaning-wirral.html" onclick="closeMobile()">End of Tenancy Cleaning</a>
+        <a href="commercial-cleaning-wirral.html" onclick="closeMobile()">Commercial Cleaning</a>
+    </div>
+    <a href="javascript:void(0)" class="mobile-toggle" onclick="toggleMobileSub(this)">Areas <svg class="dropdown-arrow" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg></a>
+    <div class="mobile-submenu">
+        <a href="deep-cleaning-wirral.html" onclick="closeMobile()">Wirral</a>
+        <a href="deep-cleaning-liverpool.html" onclick="closeMobile()">Liverpool</a>
+        <a href="deep-cleaning-chester.html" onclick="closeMobile()">Chester</a>
+    </div>
     <a href="#reviews" onclick="closeMobile()">Reviews</a>
     <a href="/offers" onclick="closeMobile()">Offers</a>
     <a href="#contact" onclick="closeMobile()">Contact</a>
@@ -1385,76 +1526,76 @@
         </div>
         <div class="services-grid">
             <!-- Deep Cleaning -->
-            <div class="service-card fade-up">
+            <a href="deep-cleaning-wirral.html" class="service-card fade-up">
                 <div class="service-icon">
                     <svg viewBox="0 0 24 24"><path d="M17.66 8L12 2.35 6.34 8A8.02 8.02 0 004 13.64c0 2 .78 4.11 2.34 5.67a7.99 7.99 0 0011.32 0c1.56-1.56 2.34-3.67 2.34-5.67C20 10.64 19.22 9.56 17.66 8zM6 14c.01-2 .62-3.27 1.76-4.4L12 5.27l4.24 4.38C17.38 10.77 17.99 12 18 14H6z"/></svg>
                 </div>
                 <h3>Deep Cleaning</h3>
                 <p>Intensive top-to-bottom cleaning that reaches every corner. Perfect for spring cleans, move-ins or when you need a thorough refresh.</p>
-            </div>
+            </a>
 
             <!-- Oven Cleaning -->
-            <div class="service-card fade-up">
+            <a href="oven-cleaning-wirral.html" class="service-card fade-up">
                 <div class="service-icon">
                     <svg viewBox="0 0 24 24"><path d="M6.8 3.45C5.75 3.95 5.02 5.02 5 6.2V8H3v6h2v8h14v-8h2V8h-2V6.21c-.02-1.18-.75-2.25-1.8-2.75L12 1 6.8 3.45zM15 14v6H9v-6h6zm4-4H5V8h14v2zM7 6.2c.01-.47.29-.89.72-1.1L12 3.28l4.28 1.82c.43.21.71.63.72 1.1V8H7V6.2z"/></svg>
                 </div>
                 <h3>Oven Cleaning</h3>
                 <p>Professional oven, hob and extractor cleaning using non-toxic, fume-free products. We'll have your oven looking and performing like new.</p>
-            </div>
+            </a>
 
             <!-- Biohazard Cleaning -->
-            <div class="service-card fade-up">
+            <a href="biohazard-cleaning-wirral.html" class="service-card fade-up">
                 <div class="service-icon">
                     <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
                 </div>
                 <h3>Biohazard Cleaning</h3>
                 <p>Certified, sensitive and discreet biohazard remediation. We handle trauma scenes, unattended deaths and hazardous waste with care and professionalism.</p>
-            </div>
+            </a>
 
             <!-- Carpet Cleaning -->
-            <div class="service-card fade-up">
+            <a href="carpet-cleaning-wirral.html" class="service-card fade-up">
                 <div class="service-icon">
                     <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zM7 12h2v5H7zm4-3h2v8h-2zm4-3h2v11h-2z"/></svg>
                 </div>
                 <h3>Carpet Cleaning</h3>
                 <p>Professional hot water extraction and dry cleaning methods that remove deep-set stains, allergens and odours, leaving carpets fresh and revitalised.</p>
-            </div>
+            </a>
 
             <!-- Upholstery Cleaning -->
-            <div class="service-card fade-up">
+            <a href="upholstery-cleaning-wirral.html" class="service-card fade-up">
                 <div class="service-icon">
                     <svg viewBox="0 0 24 24"><path d="M20 9V6c0-1.1-.9-2-2-2H6c-1.1 0-2 .9-2 2v3c-1.1 0-2 .9-2 2v5h1.33L4 19h1l.67-3h12.66l.67 3h1l.67-3H22v-5c0-1.1-.9-2-2-2zm-2-3v3h-3V6h3zM6 6h3v3H6V6zm-2 9v-3c0-.55.45-1 1-1h14c.55 0 1 .45 1 1v3H4z"/></svg>
                 </div>
                 <h3>Upholstery Cleaning</h3>
                 <p>Specialist fabric and leather upholstery cleaning that restores sofas, chairs and mattresses to like-new condition.</p>
-            </div>
+            </a>
 
             <!-- Window Cleaning -->
-            <div class="service-card fade-up">
+            <a href="window-cleaning-wirral.html" class="service-card fade-up">
                 <div class="service-icon">
                     <svg viewBox="0 0 24 24"><path d="M6 2h12v2H6V2zm0 18h12v2H6v-2zm14-4V8c0-1.1-.9-2-2-2H6c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2zm-2 0H6V8h12v8z"/></svg>
                 </div>
                 <h3>Window Cleaning</h3>
                 <p>Crystal-clear results for residential and commercial properties. Interior, exterior and hard-to-reach windows handled safely and efficiently.</p>
-            </div>
+            </a>
 
             <!-- End of Tenancy -->
-            <div class="service-card fade-up">
+            <a href="end-of-tenancy-cleaning-wirral.html" class="service-card fade-up">
                 <div class="service-icon">
                     <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
                 </div>
                 <h3>End of Tenancy Cleaning</h3>
                 <p>Comprehensive move-out cleans designed to meet landlord and letting agent standards, helping secure your full deposit return.</p>
-            </div>
+            </a>
 
             <!-- Commercial Cleaning -->
-            <div class="service-card fade-up">
+            <a href="commercial-cleaning-wirral.html" class="service-card fade-up">
                 <div class="service-icon">
                     <svg viewBox="0 0 24 24"><path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z"/></svg>
                 </div>
                 <h3>Commercial Cleaning</h3>
                 <p>Tailored cleaning contracts for offices, pubs, restaurants, retail spaces and more. Flexible scheduling to suit your business hours.</p>
-            </div>
+            </a>
         </div>
     </div>
 </section>
@@ -2312,6 +2453,12 @@
         hamburger.classList.remove('active');
         mobileNav.classList.remove('active');
         document.body.style.overflow = '';
+    }
+
+    function toggleMobileSub(el) {
+        el.classList.toggle('active');
+        const submenu = el.nextElementSibling;
+        if (submenu) submenu.classList.toggle('active');
     }
 
     // Sparkle particles
